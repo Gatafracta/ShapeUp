@@ -1,12 +1,8 @@
 /**
  * 
  */
-package GameEngine;
-
 /**
  * @author ludov
  *
  */
-class Card {
-
-}
+package gameEngine.enumerate;
