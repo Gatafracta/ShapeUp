@@ -17,8 +17,8 @@ class Deck {
 
 	public static void main(String[] args) {
 		System.out.print("Execute main.");
-		Card Card1 = new Card(Color.RED,Shape.CIRCLE,true);
-		System.out.print(Card1);
+		//Card Card1 = new Card(Color.RED,Shape.CIRCLE,true);
+		//System.out.print(Card1);
 	}
 	
 }
