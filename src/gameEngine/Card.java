@@ -4,10 +4,10 @@
 package gameEngine;
 
 import java.util.Map;
-import java.util.Set;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Set;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Collections;
@@ -64,7 +64,7 @@ class Card {
 	
 	/**Returns the three design characteristics of the Card in an array: the color, the shape, and the boolean that show if the shape is filled.
 	 * 
-	 * @return Object[]
+	 * @return Object[] This Array consists of the color, the shape, and the filling of the Card
 	 */
 	public Object[] getCharact() {
 		Object[] charactArray = {this.color, this.shape, this.isFull};
@@ -105,19 +105,33 @@ class Card {
 		Deck.clear();
 	}
 	
-	public static int drawCard() {
+	/**Draws a Card from the Deck. If the Deck is empty, returns null.
+	 * 
+	 * @return Card A Card from the Deck
+	 */
+	public static Card drawCard() {
 		Set<Integer> idSet = Deck.keySet();
-		Iterator<Integer> itId = idSet.iterator();
+		Iterator<Integer> itId = idSet.iterator(); //Creation of an iterator on the set of ids
 		int idCard;
+		Card CardDrawed = (Card) null; //Cast null to Card in case of an empty Deck
+		
 		if (itId.hasNext()) {
-			idCard = itId.next();
-			Deck.remove(idCard);
-			return idCard;
+			idCard = itId.next(); //Threads the iterator
+			System.out.println("Card "+idCard+" drawed.");
+			CardDrawed = Deck.get(idCard); //Selects the Card
+			Deck.remove(idCard, CardDrawed); //Removes the Card from the Deck
+			return CardDrawed; //Returns the chosen one
 		} else {
-			return 0;
+			System.out.println("Deck empty.");
+			return CardDrawed; //Returns "null" if the Deck is empty
 		}
 	}
 	
+	/**Generates a list of ids in a random order.
+	 * 
+	 * @param numbreId The number of id to create in a random order
+	 * @return A list of shuffled id
+	 */
 	public static List<Integer> generateRandId(int numbreId) {
 		List<Integer> idList = new ArrayList<>();
 		for (int i=1;i<=numbreId;i++) {
@@ -151,7 +165,11 @@ class Card {
 		//System.out.println(Math.floor(Math.random()*2));
 		
 		Card.createDeck();
-		
+		List<String> lsCharact = new ArrayList<>();
+		while (Card.drawCard()!=null) {
+			lsCharact.add(Arrays.toString(Card.drawCard().getCharact()));
+			System.out.println(lsCharact.toString());
+		}
 	}
 	
 }
