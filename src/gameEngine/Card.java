@@ -5,9 +5,12 @@ package gameEngine;
 
 import java.util.Map;
 import java.util.Set;
-
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Collections;
 
 import gameEngine.enumerate.*;
 
@@ -21,7 +24,7 @@ class Card {
 	/**
 	 * Stores the overall number of cards.
 	 */
-	private static int nTotal = 0;
+	//private static int nTotal = 0;
 	/**
 	 * Stores the cards of the Deck.
 	 */
@@ -32,13 +35,14 @@ class Card {
 	private Shape shape;
 	private boolean isFull;
 	
-	private Card(Color color, Shape shape, boolean isFull) {
-		nTotal++;
-		this.idCard=nTotal;
+	private Card(int idCard, Color color, Shape shape, boolean isFull) {
+		//nTotal++;
+		//this.idCard=nTotal;
+		this.idCard=idCard;
 		this.color=color;
 		this.shape=shape;
 		this.isFull=isFull;
-		Deck.put(idCard, this);
+		Deck.put(this.idCard, this);
 	}
 	
 	/**
@@ -76,13 +80,16 @@ class Card {
 			Color[] colorArray = Color.values(); //Retrieves all the elements of Color enum
 			Shape[] shapeArray = Shape.values(); //Retrieves all the elements of Shape enum
 			boolean[] isFullArray = {false, true};
+			List<Integer> randId = Card.generateRandId(colorArray.length*shapeArray.length*2); //Generates a List of card id in a random order
+			int h = 0;
 			
 			for (int i=0;i<2;i++) {
 				for (int j=0;j<colorArray.length;j++) {
 					for (int k=0;k<shapeArray.length;k++) {
-						Card cardInst = new Card(colorArray[j],shapeArray[k],isFullArray[i]); //Create a Card instance
+						Card cardInst = new Card(randId.get(h), colorArray[j],shapeArray[k],isFullArray[i]); //Create a Card instance
 						//System.out.println(colorArray[j]+" "+shapeArray[k]+" "+isFullArray[i]);
 						Deck.put(cardInst.idCard, cardInst); //Insert each instances created into the Deck
+						h++;
 					}
 				}
 			}
@@ -111,10 +118,13 @@ class Card {
 		}
 	}
 	
-	public static void shuffleDeck() {
-		/*System.out.println(idSet.size());
-		int randSlot = (int) Math.floor((idSet.size()+1)*Math.random());
-		return Deck.get(idSet.get(randSlot));*/
+	public static List<Integer> generateRandId(int numbreId) {
+		List<Integer> idList = new ArrayList<>();
+		for (int i=1;i<=numbreId;i++) {
+			idList.add(i);
+		}
+		Collections.shuffle(idList);
+		return idList;
 	}
 	
 	/**
@@ -141,9 +151,6 @@ class Card {
 		//System.out.println(Math.floor(Math.random()*2));
 		
 		Card.createDeck();
-		while (!Deck.isEmpty()) {
-			System.out.println(Card.drawCard());
-		}
 		
 	}
 	
