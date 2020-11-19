@@ -7,8 +7,6 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Set;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Collections;
 
@@ -110,20 +108,15 @@ class Card {
 	 * @return Card A Card from the Deck
 	 */
 	public static Card drawCard() {
-		Set<Integer> idSet = Deck.keySet();
-		Iterator<Integer> itId = idSet.iterator(); //Creation of an iterator on the set of ids
-		int idCard;
+		Object[] idArray = Deck.keySet().toArray();
 		Card CardDrawed = (Card) null; //Cast null to Card in case of an empty Deck
 		
-		if (itId.hasNext()) {
-			idCard = itId.next(); //Threads the iterator
-			System.out.println("Card "+idCard+" drawed.");
-			CardDrawed = Deck.get(idCard); //Selects the Card
-			Deck.remove(idCard, CardDrawed); //Removes the Card from the Deck
-			return CardDrawed; //Returns the chosen one
+		if (idArray.length!=0) {
+			CardDrawed=Deck.get(idArray[0]); //Retrieves the first card of the Deck
+			Deck.remove(idArray[0]);
+			return CardDrawed;
 		} else {
-			System.out.println("Deck empty.");
-			return CardDrawed; //Returns "null" if the Deck is empty
+			return CardDrawed;
 		}
 	}
 	
@@ -166,10 +159,12 @@ class Card {
 		
 		Card.createDeck();
 		List<String> lsCharact = new ArrayList<>();
-		while (Card.drawCard()!=null) {
+		int numCardDeck = Card.getDeckCardNumber(); //Effet de rétroaction un peu étrange
+		for (int i=0;i<numCardDeck;i++) {
 			lsCharact.add(Arrays.toString(Card.drawCard().getCharact()));
-			System.out.println(lsCharact.toString());
 		}
+		System.out.println(lsCharact.toString());
+		//System.out.println(Card.getDeckCardNumber());
 	}
 	
 }
