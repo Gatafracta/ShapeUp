@@ -3,10 +3,12 @@
  */
 package gameEngine.scoreVisitorPattern;
 
+import gameEngine.GameBoard;
+
 /**
  * @author ludov
  *
  */
-class GameBoardRect implements GameBoard {
-
+class GameBoardRect extends GameBoard implements GameBoardCount {
+	
 }

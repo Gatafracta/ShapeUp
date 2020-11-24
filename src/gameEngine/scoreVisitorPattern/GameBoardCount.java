@@ -7,6 +7,6 @@ package gameEngine.scoreVisitorPattern;
  * @author ludov
  *
  */
-interface GameBoard {
+interface GameBoardCount {
 
 }

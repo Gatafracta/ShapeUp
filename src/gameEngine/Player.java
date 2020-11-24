@@ -3,18 +3,83 @@
  */
 package gameEngine;
 
-/**
- * @author ludov
- *
- */
-class Player {
+import java.util.*;
 
+/**
+ * @author Marquès Ludovic
+ * @version 1.0
+ */
+abstract class Player {
+	
+	private String name;
+	protected Set<Card> hand;
+	protected Card victoryCard; //A VOIR
+	protected int score;
+	
+	Player(String name) {
+		this.name = name;
+		this.hand = new HashSet<Card>();
+		this.score = 0;
+	}
+	
+	/**
+	 * Allows the player to play.
+	 */
+	public abstract void play();
+	/**
+	 * Allows the player to take the card in parameter.
+	 * @param card the card to put in the hand of the player
+	 */
+	public void takeCard(Card card) {
+		hand.add(card);
+	}
+	/**
+	 * Removes the card from the player's hand and give it.
+	 * @param card the card to give
+	 * @return Card the given card
+	 */
+	public Card giveCard(Card card) {
+		Card gvCard = card;
+		hand.remove(card);
+		return gvCard;
+	}
+	
+	public void defVictoryCard(Card victoryCard) {
+		this.victoryCard = victoryCard;
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public String toString() {
+		StringBuffer sb = new StringBuffer();
+		sb.append(this.name+"'s hand:\n");
+		sb.append('[');
+		Iterator<Card> it = hand.iterator();
+		for (int k=0;k<hand.size();k++) {
+			sb.append(((Card) it.next()).toString());
+		}
+		sb.append(']');
+		return sb.toString();
+	}
+	
 	/** The main method.
 	 * @param args the arguments
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.println("Hello World");
+		// TEST toString Method
+		/*Player p1 = new VirtualPlayer("Jamy");
+		Set<Card> hSet = new HashSet<>();
+		StringBuffer sb = new StringBuffer();
+		sb.append(p1.name+"'s hand:\n");
+		sb.append('[');
+		Iterator<Card> it = hSet.iterator();
+		for (int k=0;k<hSet.size();k++) {
+			sb.append(((Card) it.next()).toString());
+		}
+		sb.append(']');
+		System.out.println(sb.toString());*/
 	}
 
 }

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package gameEngine.brainpowerStrategyPattern;
+package gameEngine.strategyPattern;
 
 /**
  * @author ludov

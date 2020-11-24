@@ -8,5 +8,15 @@ package gameEngine;
  *
  */
 class PhysicalPlayer extends Player {
+	
+	PhysicalPlayer(String name) {
+		super(name);
+	}
 
+	@Override
+	public void play() {
+		// TODO Auto-generated method stub
+		
+	}
+	
 }
