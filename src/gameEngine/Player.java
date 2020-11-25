@@ -80,6 +80,7 @@ abstract class Player {
 		}
 		sb.append(']');
 		System.out.println(sb.toString());*/
+		System.out.print("Test Github 1 - Ludovic");
 	}
 
 }
