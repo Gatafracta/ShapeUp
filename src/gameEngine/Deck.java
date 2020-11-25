@@ -95,9 +95,9 @@ class Deck {
 	 * Returns the hidden card.
 	 * @return Card the hidden card.
 	 */
-	public Card getHiddenCard() {
+	/*public Card getHiddenCard() {
 		return hiddenCard;
-	}
+	}*/ //Inutile à priori
 	
 	/**
 	 * Displays the deck in the console.
@@ -128,7 +128,7 @@ class Deck {
 			e.printStackTrace();
 		}
 		System.out.println(deck.toString());
-		System.out.println(deck.getHiddenCard());
+		//System.out.println(deck.getHiddenCard());
 	}
 
 }

@@ -57,7 +57,7 @@ public class GameSession {
 		}
 	} 
 	
-	public void addVitualPlayer(String name) {
+	public void addVirtualPlayer(String name) {
 		players.add(new VirtualPlayer(name));
 	}
 	

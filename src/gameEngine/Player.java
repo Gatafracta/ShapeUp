@@ -44,7 +44,7 @@ abstract class Player {
 		return gvCard;
 	}
 	
-	public void defVictoryCard(Card victoryCard) {
+	public void setVictoryCard(Card victoryCard) {
 		this.victoryCard = victoryCard;
 	}
 	
