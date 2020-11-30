@@ -16,7 +16,7 @@ import java.util.Collections;
  * @author Marquès Ludovic
  * @version 2.0
  */
-class Card {
+public class Card {
 	
 	private int idCard;
 	private Color color;
