@@ -30,7 +30,7 @@ public class Main {
 			switch (mainscan.next()) {
 			case "r":
 				gBo = GameBoardEnum.RECTANGLE;
-				GameBoard gB = new GameBoardRect(); 
+				gB = new GameBoardRect(); 
 				i = 1;
 				break;
 
@@ -114,25 +114,9 @@ public class Main {
 	
 	    
 			
-	GameSession session = new GameSession(gB, gMode, nP);
+	GameSession session = new GameSession(gB, gMode, nP, nbPhysicalPlayer, nbVirtalPlayer, nbPlayer);
 	
-	nbPhysicalPlayer = nbPlayer - nbVirtalPlayer;
-	i=1;
-	while(nbPhysicalPlayer != 0) {
-		System.out.println("Nom du joueur physique n°"+(nbPhysicalPlayer - (nbPhysicalPlayer - i))+" ?");
-		nameOfPlayer = mainscan.next();
-		session.addPhysicalPlayer(nameOfPlayer);
-	    nbPhysicalPlayer -= 1;
-	    i +=1;
-	}
-	i=1;
-	while (nbVirtalPlayer != 0) {
-		System.out.println("Nom du joueur virtuel n°"+(nbVirtalPlayer - (nbVirtalPlayer - i))+" ?");
-		nameOfPlayer = mainscan.next();
-		session.addVirtualPlayer(nameOfPlayer);
-	    nbVirtalPlayer -= 1;
-	    i +=1;
-	}
+	
 	
 	}
 

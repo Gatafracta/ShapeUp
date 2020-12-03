@@ -17,6 +17,7 @@ import java.util.*; //More convenient during development
  */
 class Deck {
 	
+	private Random randomGenerator = new Random();
 	/**
 	 * The number of cards created at instantiation.
 	 */
@@ -74,7 +75,9 @@ class Deck {
 	 * @return Card a random card from the deck
 	 */
 	public Card drawRandomCard() {
-		int randPos = (int) Math.round(Math.random()*(Deck.NUM_OF_CARDS-1));
+		//int randPos = (int) Math.round(Math.random()*(Deck.NUM_OF_CARDS-1));
+		int randPos=randomGenerator.nextInt(Deck.NUM_OF_CARDS);
+		//System.out.println("Component.size : "+components.size());
 		return (Card) ((LinkedList<Card>) components).remove(randPos);
 	}
 	

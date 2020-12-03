@@ -31,7 +31,7 @@ public class GameBoardRect extends GameBoard implements GameBoardCount {
 		gbr.cardPos.get(2)[5]=new Card(4, Color.RED, Shape.SQUARE, false);
 		gbr.cardPos.get(2)[2]=new Card(5, Color.GREEN, Shape.CIRCLE, false);
 		gbr.cardPos.get(1)[2]=new Card(6, Color.BLUE, Shape.TRIANGLE, false);*/
-		System.out.println(gbr.toString());
+		System.out.println(gbr);
 	}
 	
 	public GameBoardRect() {
@@ -74,6 +74,7 @@ public class GameBoardRect extends GameBoard implements GameBoardCount {
 	/**
 	 * Prints the cards on the game board.
 	 */
+	@Override
 	public String toString() {
 		StringBuffer sb = new StringBuffer();
 		sb.append("CARD POSITIONS:\n+");
