@@ -5,6 +5,8 @@ package gameEngine;
 
 import gameEngine.enumerate.*;
 import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -20,6 +22,8 @@ public class GameSession {
 	private GameMode gMode;
 	private NumOfPlayers nP;
 	private boolean isOnGoing = false;
+	private Map<Card, Integer[]> mapCards;
+	
 	
 	GameSession(GameBoard gBoard, GameMode gMode, NumOfPlayers nP) {
 		this.players = new ArrayList<>();
@@ -29,6 +33,8 @@ public class GameSession {
 		this.gMode = gMode; //GameMode chosen
 		this.nP = nP; //Number of players
 		this.isOnGoing = true;
+	    Scanner scanner = new Scanner(System.in);  // Create a Scanner object
+	    Object[] objectTab = new Object[2];
 		
 		switch(gMode) {
 		
@@ -73,10 +79,12 @@ public class GameSession {
 		//A implémenter
 	}*/
 	
-	public void playRound() {
+	public void playRound(Scanner scanner, Map<Card, Integer[]> mapCard) {
 		Iterator<Player> it = players.iterator();
 		while (it.hasNext()) {
-			it.next().play();
+			Card drawedCard = deck.drawRandomCard();
+			Map<Card, Integer[]> returnedValues = it.next().play(drawedCard, mapCard, scanner);
+			gBoard.putDownCard(returnedValues.get(drawedCard), drawedCard);
 		}
 	}
 	

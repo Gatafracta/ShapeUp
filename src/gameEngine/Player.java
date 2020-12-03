@@ -25,7 +25,8 @@ public abstract class Player {
 	/**
 	 * Allows the player to play.
 	 */
-	public abstract void play();
+	public abstract Map<Card, Integer[]> play(Card drawedCard, Map<Card, Integer[]> mapCard, Scanner scanner);
+		
 	/**
 	 * Allows the player to take the card in parameter.
 	 * @param card the card to put in the hand of the player
