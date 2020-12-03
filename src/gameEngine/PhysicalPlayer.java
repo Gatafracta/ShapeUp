@@ -20,8 +20,7 @@ import gameEngine.enumerate.NumOfPlayers;
 class PhysicalPlayer extends Player {
 	
 	private Map<Card, Integer[]> map = new HashMap<Card, Integer[]>();
-	private int i=0;
-	private int testInt=0;
+
 	
 	PhysicalPlayer(String name) {
 		super(name);

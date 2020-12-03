@@ -71,6 +71,13 @@ public class GameBoardRect extends GameBoard implements GameBoardCount {
 		}
 	}
 	
+	public int getWidth() {
+		return width;
+	}
+	
+	public int getLenght() {
+		return length;
+	}
 	/**
 	 * Prints the cards on the game board.
 	 */

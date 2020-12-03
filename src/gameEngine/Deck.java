@@ -18,7 +18,6 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 class Deck {
 	
-	private Random randomGenerator = new Random();
 	/**
 	 * The number of cards created at instantiation.
 	 */

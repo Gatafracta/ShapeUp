@@ -161,6 +161,14 @@ public abstract class GameBoard {
 		}
 	}
 	
+	public int getWidth() {
+		return width;
+	}
+	
+	public int getLenght() {
+		return length;
+	}
+	
 	/**Prints the symbol related to the card.
 	 * 
 	 * @param card the card to print

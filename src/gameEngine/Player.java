@@ -79,11 +79,11 @@ public abstract class Player {
 	/** The main method.
 	 * @param args the arguments
 	 */
-	public static void main(String[] args) {
+/*	public static void main(String[] args) {
 		// TEST toString Method
 		Player p1 = new VirtualPlayer("Jamy"); //Crée le joueur Jamy
 		System.out.println(p1.toString());
 		
 	}
-
+*/
 }

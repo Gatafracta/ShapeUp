@@ -3,6 +3,11 @@
  */
 package gameEngine.strategyPattern;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+import gameEngine.Card;
 import gameEngine.GameBoard;
 import gameEngine.Player;
 
@@ -16,12 +21,15 @@ public class Context {
 	 * Sets the default strategy.
 	 */
 	private Strategy strategy = new ConcreteDefaultStrategy();
+	private Map<Card, Integer[]> map = new HashMap<Card, Integer[]>();
+
 	
 	/**
 	 * Executes the current strategy.
 	 */
-	public void executeStrategy(Player p1, GameBoard gb) {
-		strategy.play(p1, gb);
+	public Map<Card, Integer[]> executeStrategy(Player p1, Card drawedCard, Map<Card, Integer[]> mapCard, Scanner scanner, GameBoard gBoard) {
+		map=strategy.play(p1, drawedCard, mapCard, scanner, gBoard);
+		return map;
 	}
 	
 	/**
