@@ -2,34 +2,29 @@
  * 
  */
 package gameEngine;
-
+import gameEngine.strategyPattern.*;
 import java.util.Map;
 import java.util.Scanner;
+
+import com.sun.tools.javac.util.Context;
 
 /**
  * @author ludov
  *
  */
+
 public class VirtualPlayer extends Player {
+
+	private Context context = new Context();
 
 	public VirtualPlayer(String name) {
 		super(name);
 	}
 
 	@Override
-	public Map<Card, Integer[]> play(Card drawedCard, Map<Card, Integer[]> mapCard, Scanner scanner) {
+	public Map<Card, Integer[]> play(Card drawedCard, Map<Card, Integer[]> mapCard, Scanner scanner, GameBoard gBoard) {
 		
-		Integer[] position = new Integer[2];
-
-		takeCard(drawedCard);
-		System.out.println("Enter x coordonate : ");
-	    position[0] = scanner.nextInt();  // Read user input
-	    System.out.println("Enter y coordonate : ");
-	    position[1] = scanner.nextInt();  // Read user input
-	    
-	    mapCard.put(giveCard(drawedCard), position);
-	    
-		return mapCard;
+		context.executeStrategy(this, gBoard);
 		
 	}
 

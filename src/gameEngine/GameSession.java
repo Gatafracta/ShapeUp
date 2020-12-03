@@ -33,8 +33,7 @@ public class GameSession {
 		this.gMode = gMode; //GameMode chosen
 		this.nP = nP; //Number of players
 		this.isOnGoing = true;
-	    Scanner scanner = new Scanner(System.in);  // Create a Scanner object
-	    Object[] objectTab = new Object[2];
+	   
 		
 		switch(gMode) {
 		
@@ -83,7 +82,7 @@ public class GameSession {
 		Iterator<Player> it = players.iterator();
 		while (it.hasNext()) {
 			Card drawedCard = deck.drawRandomCard();
-			Map<Card, Integer[]> returnedValues = it.next().play(drawedCard, mapCard, scanner);
+			Map<Card, Integer[]> returnedValues = it.next().play(drawedCard, mapCard, scanner, gBoard);
 			gBoard.putDownCard(returnedValues.get(drawedCard), drawedCard);
 		}
 	}

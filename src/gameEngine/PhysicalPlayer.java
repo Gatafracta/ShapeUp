@@ -20,7 +20,7 @@ class PhysicalPlayer extends Player {
 	}
 
 	@Override
-	public Map<Card, Integer[]> play(Card drawedCard, Map<Card, Integer[]> mapCard, Scanner scanner) {
+	public Map<Card, Integer[]> play(Card drawedCard, Map<Card, Integer[]> mapCard, Scanner scanner, GameBoard gBoard) {
 		
 	    Integer[] position = new Integer[2];
 
