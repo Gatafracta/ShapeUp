@@ -89,7 +89,12 @@ public class GameSession {
 			break;
 		}
 		
-		this.playRound(scanner, mapCard);
+		while (!deck.isEmpty()) {
+		
+			this.playRound(scanner, mapCard);
+			
+		}
+		
 	} 
 	
 	public void addVirtualPlayer(String name) {
@@ -112,7 +117,7 @@ public class GameSession {
 		Iterator<Player> it = players.iterator();
 		while (it.hasNext()) {
 			System.out.println(this.gBoard);
-			Card drawedCard = deck.drawRandomCard();
+			Card drawedCard = deck.drawTopCard();
 			System.out.println("Votre carte : "+drawedCard);
 			mapCards = it.next().play(drawedCard, mapCard, scanner, this.gBoard);
 			
@@ -121,9 +126,10 @@ public class GameSession {
 				cardPosition[0] = mapCards.get(drawedCard)[0];
 				cardPosition[1] = mapCards.get(drawedCard)[1];
 			
-				System.out.println("position 0 : "+mapCards.get(drawedCard)[0]+" position 1 : "+mapCards.get(drawedCard)[1]);
+				//System.out.println("position 0 : "+mapCards.get(drawedCard)[0]+" position 1 : "+mapCards.get(drawedCard)[1]);
+				
 				try {
-					this.gBoard.putDownCard(cardPosition, deck.drawRandomCard());
+					this.gBoard.putDownCard(cardPosition, drawedCard);
 				} catch(IndexOutOfBoundsException e) {
 					System.err.print("Carte placé en dehors des limites du jeu");
 				}

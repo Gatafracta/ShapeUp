@@ -9,6 +9,7 @@ import gameEngine.enumerate.*;
 //import java.util.LinkedList;
 //import java.util.Collections;
 import java.util.*; //More convenient during development
+import java.util.concurrent.ThreadLocalRandom;
 
 /**The Class Deck defines the characteristics of a deck and provides some methods relating to it.
  * 
@@ -21,7 +22,7 @@ class Deck {
 	/**
 	 * The number of cards created at instantiation.
 	 */
-	public final static int NUM_OF_CARDS = Color.values().length*Shape.values().length*2;
+	public static int NUM_OF_CARDS = Color.values().length*Shape.values().length*2;
 	
 	/**
 	 * Stores the card components of the Deck.
@@ -74,12 +75,16 @@ class Deck {
 	 * Removes and returns a random card from the deck.
 	 * @return Card a random card from the deck
 	 */
-	public Card drawRandomCard() {
-		//int randPos = (int) Math.round(Math.random()*(Deck.NUM_OF_CARDS-1));
-		int randPos=randomGenerator.nextInt(Deck.NUM_OF_CARDS);
-		//System.out.println("Component.size : "+components.size());
+	/*public Card drawRandomCard() {
+		int randPos = (int) Math.round(Math.random()*(Deck.NUM_OF_CARDS-1));
+		
+		//int randPos = ThreadLocalRandom.current().nextInt(1, (Deck.NUM_OF_CARDS - 1));
+		System.out.println("random number : "+randPos);
+		System.out.println("Taille du paquet : "+components.size());
+		Deck.NUM_OF_CARDS -= 1;
+		
 		return (Card) ((LinkedList<Card>) components).remove(randPos);
-	}
+	}*/
 	
 	/**
 	 * Defines a hidden card.
@@ -124,9 +129,9 @@ class Deck {
 		// TODO Auto-generated method stub
 		Deck deck = new Deck();
 		deck.shuffle();
-		System.out.println(deck.toString());
+		System.out.println(deck);
 		try {
-			deck.setHiddenCard(deck.drawRandomCard());
+			deck.setHiddenCard(deck.drawTopCard());
 		} catch (hiddenCardAlreadySettledException e) {
 			e.printStackTrace();
 		}

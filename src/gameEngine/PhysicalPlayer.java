@@ -5,6 +5,7 @@ package gameEngine;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -20,6 +21,7 @@ class PhysicalPlayer extends Player {
 	
 	private Map<Card, Integer[]> map = new HashMap<Card, Integer[]>();
 	private int i=0;
+	private int testInt=0;
 	
 	PhysicalPlayer(String name) {
 		super(name);
@@ -30,10 +32,26 @@ class PhysicalPlayer extends Player {
 		
 	    Integer[] position = new Integer[2];
 		takeCard(drawedCard);
-		System.out.println("Enter x coordonate : ");
-	    position[0] = scanner.nextInt();  // Read user input
-	    System.out.println("Enter y coordonate : ");
-	    position[1] = scanner.nextInt();  // Read user input
+		
+		while(true){
+		    try{
+		    	System.out.println("Entrez la coordonnée en x : ");
+				position[0] = Integer.parseInt(scanner.next());  // Read user input
+		        break;
+		    }catch(NumberFormatException e){
+		        System.out.println("Mauvaise valeure. Entrez-en une nouvelle");
+		    }
+		}
+		
+		while(true){
+		    try{
+		    	System.out.println("Entrez la coordonnée en y : ");
+				position[1] = Integer.parseInt(scanner.next());  // Read user input
+		        break;
+		    }catch(NumberFormatException e){
+		        System.out.println("Mauvaise valeure. Entrez-en une nouvelle");
+		    }
+		}		
 	    
 	    map.put(giveCard(drawedCard), position);
     
