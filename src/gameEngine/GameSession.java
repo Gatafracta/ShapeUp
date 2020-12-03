@@ -23,9 +23,10 @@ public class GameSession {
 	private NumOfPlayers nP;
 	private boolean isOnGoing = false;
 	private Map<Card, Integer[]> mapCards;
+	Scanner scanner = new Scanner(System.in);
 	
 	
-	GameSession(GameBoard gBoard, GameMode gMode, NumOfPlayers nP) {
+	public GameSession(GameBoard gBoard, GameMode gMode, NumOfPlayers nP) {
 		this.players = new ArrayList<>();
 		this.deck = new Deck(); //Creates an unshuffled deck of card
 		deck.shuffle(); //Shuffles the deck

@@ -7,7 +7,7 @@ package gameEngine.enumerate;
  * @author ludov
  *
  */
-public enum GameBoard {
+public enum GameBoardEnum {
 	RECTANGLE,
 	FIR,
 	STAR
