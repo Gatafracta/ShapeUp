@@ -4,10 +4,10 @@
 package gameEngine.scoreVisitorPattern;
 
 import gameEngine.GameBoard;
+import gameEngine.Card;
 
 import java.util.ArrayList;
 
-import gameEngine.Card;
 import gameEngine.enumerate.Color;
 import gameEngine.enumerate.Shape;
 
@@ -15,7 +15,7 @@ import gameEngine.enumerate.Shape;
  * @author Marquès Ludovic
  *
  */
-class GameBoardRect extends GameBoard implements GameBoardCount {
+public class GameBoardRect extends GameBoard implements GameBoardCount {
 	
 	public static void main(String args[]) {		
 		GameBoardRect gbr = new GameBoardRect();

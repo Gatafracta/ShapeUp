@@ -8,5 +8,7 @@ package gameEngine.strategyPattern;
  *
  */
 class ConcreteAdvancedStrategy implements Strategy {
-
+	public void play() {
+		
+	}
 }

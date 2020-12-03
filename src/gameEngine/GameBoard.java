@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import org.fusesource.jansi.Ansi;
 import org.fusesource.jansi.AnsiConsole;
 
+import exceptions.*;
+
 /**
  * @author ludov
  *
@@ -25,24 +27,88 @@ public abstract class GameBoard {
 	
 	public abstract void initActivePos();
 	
+	/**
+	 * Returns and removes a card from the game board. If the position refers to nothing, it returns null.
+	 * @param pos the position of the card
+	 * @return Card
+	 */
 	public Card pickUpCard(Integer[] pos) {
-		return null;
-		
+		if (this.isPosition(pos)&&this.checkBorder(pos)&&!this.isAvailablePos(pos)) {
+			Card cd = cardPos.get(pos[0])[pos[1]];
+			cardPos.get(pos[0])[pos[1]]=null;
+			return cd;
+		} else {
+			System.out.print("Pas de carte en "+pos);
+			return null;
+		}
 	}
 	
-	public boolean putDownCard(Integer[] pos) {
-		return false;
-		
+	public boolean putDownCard(Integer[] pos, Card card) {
+		if (this.check(pos)) {
+			this.cardPos.get(pos[0])[pos[1]] = card;
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
-	protected boolean checkBorder(Integer[] pos) {
-		return false;
-		
+	/**
+	 * Returns true if the parameter is a position, in the border and the location is available.
+	 * If this is not the case, returns false.
+	 * @param pos the position
+	 * @return boolean
+	 */
+	public boolean check(Integer[] pos) {
+		if (this.isPosition(pos)&&this.checkBorder(pos)) {
+			if (this.isAvailablePos(pos)) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
 	}
 	
-	protected boolean checkPos() {
-		return false;
-		
+	/**
+	 * Returns true if the parameter is a position.
+	 * @param pos the position
+	 * @return boolean
+	 */
+	private boolean isPosition(Integer[] pos) {
+		if (pos.length==2) {
+			return true;
+		} else {
+			System.out.println(pos.toString()+" is not a position.");
+			return false;
+		}
+	}
+	
+	/**
+	 * Checks if the position is within the borders and returns true if so, otherwise returns false.
+	 * @return boolean
+	 */
+	private boolean checkBorder(Integer[] pos) {
+		if (pos[0]<width || pos[1]<length || 0<=pos[0] || 0<=pos[1]) {
+			return true;
+		} else {
+			System.out.println(pos+" is out of borders.");
+			return false;
+		}
+	}
+	
+	/**
+	 * Returns true if the position is available, otherwise returns false.
+	 * @param pos the position
+	 * @return boolean
+	 */
+	private boolean isAvailablePos(Integer[] pos) {
+		if (this.cardPos.get(pos[0])[pos[1]]==null) {
+			return true;
+		} else {
+			System.out.println(pos+" is an unavailable position.");
+			return false;
+		}
 	}
 	
 	public static void main(String[] args) {

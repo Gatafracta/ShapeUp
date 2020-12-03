@@ -7,13 +7,17 @@ import gameEngine.enumerate.*;
 import exceptions.*;
 
 import java.util.List;
+
+import org.fusesource.jansi.Ansi;
+import org.fusesource.jansi.AnsiConsole;
+
 import java.util.LinkedList;
 import java.util.ArrayList;
 import java.util.Collections;
 
 /**The Class Card defines the characteristics of a game card and provides some methods relating to them.
  * 
- * @author Marquès Ludovic
+ * @author MarquÃ¨s Ludovic
  * @version 2.0
  */
 public class Card {
@@ -86,7 +90,9 @@ public class Card {
 		return idList;
 	}
 	
-	@Override
+	/**
+	 * Prints card characteristics.
+	 */
 	public String toString() {
 		StringBuffer sb = new StringBuffer();
 		sb.append(this.color.name().charAt(0));
@@ -105,20 +111,8 @@ public class Card {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		
-		/*Card card1 = new Card(1,Color.RED,Shape.CIRCLE,true);
-		
-		StringBuffer sb = new StringBuffer();
-		sb.append(card1.color.name().charAt(0));
-		sb.append(card1.shape.name().charAt(0));
-		if(card1.isFull = false) {
-			sb.append("E-"); //Empty
-		} else {
-			sb.append("F-"); //Full
-		}
-		sb.append(card1.idCard);
-		System.out.println(sb.toString());*/
-		
+		Card card1 = new Card(1,Color.RED,Shape.CIRCLE,true);
+		System.out.println("Affichage Carte: "+card1.toString());
 	}
 	
 }

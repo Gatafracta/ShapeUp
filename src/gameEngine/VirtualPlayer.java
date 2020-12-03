@@ -7,9 +7,9 @@ package gameEngine;
  * @author ludov
  *
  */
-class VirtualPlayer extends Player {
+public class VirtualPlayer extends Player {
 
-	VirtualPlayer(String name) {
+	public VirtualPlayer(String name) {
 		super(name);
 	}
 

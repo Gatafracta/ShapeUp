@@ -9,7 +9,7 @@ import java.util.*;
  * @author Marquès Ludovic
  * @version 1.0
  */
-abstract class Player {
+public abstract class Player {
 	
 	private String name;
 	protected Set<Card> hand;
@@ -44,14 +44,25 @@ abstract class Player {
 		return gvCard;
 	}
 	
+	/**
+	 * Sets the victory card.
+	 * @param victoryCard
+	 */
 	public void setVictoryCard(Card victoryCard) {
 		this.victoryCard = victoryCard;
 	}
 	
+	/**
+	 * Returns the player's name.
+	 * @return String
+	 */
 	public String getName() {
 		return name;
 	}
-
+	
+	/**
+	 * Prints the hand of the player.
+	 */
 	public String toString() {
 		StringBuffer sb = new StringBuffer();
 		sb.append(this.name+"'s hand:\n");
@@ -69,18 +80,9 @@ abstract class Player {
 	 */
 	public static void main(String[] args) {
 		// TEST toString Method
-		/*Player p1 = new VirtualPlayer("Jamy");
-		Set<Card> hSet = new HashSet<>();
-		StringBuffer sb = new StringBuffer();
-		sb.append(p1.name+"'s hand:\n");
-		sb.append('[');
-		Iterator<Card> it = hSet.iterator();
-		for (int k=0;k<hSet.size();k++) {
-			sb.append(((Card) it.next()).toString());
-		}
-		sb.append(']');
-		System.out.println(sb.toString());*/
-		System.out.print("Test Github 1 - Ludovic");
+		Player p1 = new VirtualPlayer("Jamy"); //Crée le joueur Jamy
+		System.out.println(p1.toString());
+		
 	}
 
 }
