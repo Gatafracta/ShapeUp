@@ -114,12 +114,39 @@ public class GameSession {
 	}
 	
 	/*public void changeGameBoard() {
-		//A impl�menter
+		//A impl�menter
 	}*/
 	
 	public void playRound(Scanner scanner, Map<Card, Integer[]> mapCard) {
-		Iterator<Player> it = players.iterator();
-		while (it.hasNext()) {
+		//Iterator<Player> it = players.iterator();
+		
+		//Test de débogage
+		for (Iterator<Player> it = players.iterator(); it.hasNext();) {
+			Player p = it.next();
+			//System.out.println(p);
+			System.out.println("-----------------------------------------------------------");
+			AnsiConsole.out.println("Tour de : "+p.getName());
+			System.out.println(this.gBoard);
+			Card drawedCard = deck.drawTopCard();
+			System.out.println("Votre carte : "+this.gBoard.cardToString(drawedCard));
+			mapCards = it.next().play(drawedCard, mapCard, scanner, this.gBoard);
+			
+			if (mapCards != null) {
+				
+				cardPosition[0] = mapCards.get(drawedCard)[0];
+				cardPosition[1] = mapCards.get(drawedCard)[1];
+			
+				//System.out.println("position 0 : "+mapCards.get(drawedCard)[0]+" position 1 : "+mapCards.get(drawedCard)[1]);
+				
+				try {
+					this.gBoard.putDownCard(cardPosition, drawedCard);
+				} catch(IndexOutOfBoundsException e) {
+					System.err.print("Carte placé en dehors des limites du jeu");
+				}
+			}
+		}
+		
+		/*while (it.hasNext()) {
 			System.out.println("-----------------------------------------------------------");
 			AnsiConsole.out.println("Tour de : "+it.next().getName());
 			System.out.println(this.gBoard);
@@ -140,7 +167,7 @@ public class GameSession {
 					System.err.print("Carte placé en dehors des limites du jeu");
 				}
 			}
-		}
+		}*/
 	}
 	
 	public boolean isFinished() {
