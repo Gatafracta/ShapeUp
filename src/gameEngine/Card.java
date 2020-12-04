@@ -17,7 +17,7 @@ import java.util.Collections;
 
 /**The Class Card defines the characteristics of a game card and provides some methods relating to them.
  * 
- * @author Marqu�s Ludovic
+ * @author Marquès Ludovic
  * @version 2.0
  */
 public class Card {

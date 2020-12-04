@@ -7,6 +7,9 @@ import gameEngine.enumerate.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+
+import org.fusesource.jansi.AnsiConsole;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -48,7 +51,7 @@ public class GameSession {
 		nbPhysicalPlayer = nbPlayer - nbVirtalPlayer;
 		
 		while(nbPhysicalPlayer != 0) {
-			System.out.println("Nom du joueur physique n°"+(nbPhysicalPlayer - (nbPhysicalPlayer - i))+" ?");
+			System.out.println("Nom du joueur physique nÂ°"+(nbPhysicalPlayer - (nbPhysicalPlayer - i))+" ?");
 			nameOfPlayer = scanner.next();
 			this.addPhysicalPlayer(nameOfPlayer);
 		    nbPhysicalPlayer -= 1;
@@ -56,7 +59,7 @@ public class GameSession {
 		}
 		i=1;
 		while (nbVirtalPlayer != 0) {
-			System.out.println("Nom du joueur virtuel n°"+(nbVirtalPlayer - (nbVirtalPlayer - i))+" ?");
+			System.out.println("Nom du joueur virtuel nÂ°"+(nbVirtalPlayer - (nbVirtalPlayer - i))+" ?");
 			nameOfPlayer = scanner.next();
 			this.addVirtualPlayer(nameOfPlayer);
 		    nbVirtalPlayer -= 1;
@@ -110,7 +113,7 @@ public class GameSession {
 	}
 	
 	/*public void changeGameBoard() {
-		//A implémenter
+		//A implï¿½menter
 	}*/
 	
 	public void playRound(Scanner scanner, Map<Card, Integer[]> mapCard) {
@@ -133,7 +136,7 @@ public class GameSession {
 				try {
 					this.gBoard.putDownCard(cardPosition, drawedCard);
 				} catch(IndexOutOfBoundsException e) {
-					System.err.print("Carte placé en dehors des limites du jeu");
+					System.err.print("Carte placÃ© en dehors des limites du jeu");
 				}
 			}
 		}
@@ -141,7 +144,7 @@ public class GameSession {
 	
 	public boolean isFinished() {
 		//Si chaque joueur n'a plus de carte dans la main
-		//Créer un emplacement victoryCard et hiddenCard --> FAIT, faire les méthodes
+		//CrÃ©er un emplacement victoryCard et hiddenCard --> FAIT, faire les mï¿½thodes
 		return false;
 	}
 	

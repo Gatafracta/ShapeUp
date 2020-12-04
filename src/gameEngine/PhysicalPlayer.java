@@ -34,7 +34,7 @@ class PhysicalPlayer extends Player {
 		
 		while(true){
 		    try{
-		    	System.out.println("Entrez la coordonnée en x : ");
+		    	System.out.println("Entrez la coordonnÃ©e en x : ");
 				position[0] = Integer.parseInt(scanner.next());  // Read user input
 		        break;
 		    }catch(NumberFormatException e){
@@ -44,7 +44,7 @@ class PhysicalPlayer extends Player {
 		
 		while(true){
 		    try{
-		    	System.out.println("Entrez la coordonnée en y : ");
+		    	System.out.println("Entrez la coordonnÃ©e en y : ");
 				position[1] = Integer.parseInt(scanner.next());  // Read user input
 		        break;
 		    }catch(NumberFormatException e){
@@ -82,7 +82,7 @@ case "3":
 	break;
 	
 default:
-	System.out.println("Mauvaise entrée, recommencez");
+	System.out.println("Mauvaise entrï¿½e, recommencez");
 	break;
 }
 }

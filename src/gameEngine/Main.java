@@ -2,6 +2,9 @@ package gameEngine;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import org.fusesource.jansi.AnsiConsole;
+
 import gameEngine.scoreVisitorPattern.*;
 import gameEngine.enumerate.*;
 
@@ -20,8 +23,6 @@ public class Main {
 
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
 
 		System.out.println("Choisisser le type de plateau : ");
 		System.out.println("Type de plateau disponnibles : rectangulaire (r)");
@@ -117,7 +118,7 @@ public class Main {
 	GameSession session = new GameSession(gB, gMode, nP, nbPhysicalPlayer, nbVirtalPlayer, nbPlayer);
 	
 	
-	
+
 	}
 
 }

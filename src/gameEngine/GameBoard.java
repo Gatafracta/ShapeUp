@@ -138,7 +138,7 @@ public abstract class GameBoard {
 					sb.append(boolToString(this.activePos.get(i)[j]));
 					}
 			}
-			sb.append(" ¦\n");
+			sb.append("  ¦\n");
 		}
 		sb.append('+');
 		for (int k=0;k<length*3;k++) {
