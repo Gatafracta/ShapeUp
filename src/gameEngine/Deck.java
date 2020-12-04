@@ -18,7 +18,6 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 class Deck {
 	
-	private Random randomGenerator = new Random();
 	/**
 	 * The number of cards created at instantiation.
 	 */
@@ -68,6 +67,7 @@ class Deck {
 	 * @return Card the top card of the deck
 	 */
 	public Card drawTopCard() {
+		System.out.println("Taille du paquet : "+components.size());
 		return (Card) ((LinkedList<Card>) components).pop();
 	}
 	

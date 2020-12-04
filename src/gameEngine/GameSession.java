@@ -116,9 +116,11 @@ public class GameSession {
 	public void playRound(Scanner scanner, Map<Card, Integer[]> mapCard) {
 		Iterator<Player> it = players.iterator();
 		while (it.hasNext()) {
+			System.out.println("-----------------------------------------------------------");
+			System.out.println("Tour de : "+it.next().getName());
 			System.out.println(this.gBoard);
 			Card drawedCard = deck.drawTopCard();
-			System.out.println("Votre carte : "+drawedCard);
+			System.out.println("Votre carte : "+this.gBoard.cardToString(drawedCard));
 			mapCards = it.next().play(drawedCard, mapCard, scanner, this.gBoard);
 			
 			if (mapCards != null) {

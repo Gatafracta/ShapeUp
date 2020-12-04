@@ -106,7 +106,7 @@ public abstract class GameBoard {
 		if (this.cardPos.get(pos[0])[pos[1]]==null) {
 			return true;
 		} else {
-			System.out.println(pos+" is an unavailable position.");
+			System.out.println(pos[0]+" "+pos[1]+" is an unavailable position.");
 			return false;
 		}
 	}
@@ -159,6 +159,14 @@ public abstract class GameBoard {
 		} else {
 			return "✖";
 		}
+	}
+	
+	public int getWidth() {
+		return width;
+	}
+	
+	public int getLenght() {
+		return length;
 	}
 	
 	/**Prints the symbol related to the card.
