@@ -7,6 +7,7 @@ import gameEngine.enumerate.Color;
 import gameEngine.enumerate.Shape;
 
 import java.util.List;
+import java.util.concurrent.Callable;
 import java.util.ArrayList;
 
 import org.fusesource.jansi.Ansi;
@@ -169,6 +170,39 @@ public abstract class GameBoard {
 		return length;
 	}
 	
+	/**
+	 * Prints the cards on the game board.
+	 */
+	@Override
+	public String toString() {
+	
+		StringBuffer sb = new StringBuffer();
+		sb.append("CARD POSITIONS:\n+");
+		for (int k=0;k<length*3;k++) {
+			sb.append('-');
+		}
+		sb.append("+\n");
+		for (int i=0;i<width;i++) {
+			sb.append("¦ ");
+			for (int j=0;j<length;j++) {
+				if (j==0) {
+					sb.append(this.cardToString(this.cardPos.get(i)[0]));
+					}
+				else {
+					sb.append("  ");
+					sb.append(this.cardToString(this.cardPos.get(i)[j]));
+					}
+			}
+			sb.append(" ¦\n");
+		}
+		sb.append('+');
+		for (int k=0;k<length*3;k++) {
+			sb.append('-');
+		}
+		sb.append('+');
+		return sb.toString();
+	}
+	
 	/**Prints the symbol related to the card.
 	 * 
 	 * @param card the card to print
@@ -182,7 +216,7 @@ public abstract class GameBoard {
 			Shape s = (Shape) card.getCharact()[1];
 			boolean f = (boolean) card.getCharact()[2];
 			
-			AnsiConsole.systemInstall();
+			//AnsiConsole.systemInstall();
 			switch (c) {
 			case RED:
 				if (f==true) sb.append(Ansi.ansi().fgRed().a(sym[s.ordinal()]).reset());

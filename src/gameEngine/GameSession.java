@@ -120,7 +120,7 @@ public class GameSession {
 		Iterator<Player> it = players.iterator();
 		while (it.hasNext()) {
 			System.out.println("-----------------------------------------------------------");
-			System.out.println("Tour de : "+it.next().getName());
+			AnsiConsole.out.println("Tour de : "+it.next().getName());
 			System.out.println(this.gBoard);
 			Card drawedCard = deck.drawTopCard();
 			System.out.println("Votre carte : "+this.gBoard.cardToString(drawedCard));

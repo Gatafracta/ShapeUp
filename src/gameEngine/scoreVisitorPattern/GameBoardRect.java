@@ -79,36 +79,4 @@ public class GameBoardRect extends GameBoard implements GameBoardCount {
 		return length;
 	}
 	
-	/**
-	 * Prints the cards on the game board.
-	 */
-	@Override
-	public String toString() {
-		StringBuffer sb = new StringBuffer();
-		sb.append("CARD POSITIONS:\n+");
-		for (int k=0;k<length*3;k++) {
-			sb.append('-');
-		}
-		sb.append("+\n");
-		for (int i=0;i<width;i++) {
-			sb.append("¦ ");
-			for (int j=0;j<length;j++) {
-				if (j==0) {
-					sb.append(this.cardToString(this.cardPos.get(i)[0]));
-					}
-				else {
-					sb.append("  ");
-					sb.append(this.cardToString(this.cardPos.get(i)[j]));
-					}
-			}
-			sb.append(" ¦\n");
-		}
-		sb.append('+');
-		for (int k=0;k<length*3;k++) {
-			sb.append('-');
-		}
-		sb.append('+');
-		return sb.toString();
-	}
-	
 }
