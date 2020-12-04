@@ -112,6 +112,23 @@ public abstract class GameBoard {
 		}
 	}
 	
+	/**
+	 * Returns true if a card is around the position in parameter, otherwise returns false.
+	 * @param posRef the position of reference
+	 * @return boolean
+	 */
+	public boolean adjacencyRule(Integer[] posRef) {
+		Integer[][] posArr = {{posRef[0]-1,posRef[1]-1},{posRef[0]-1,posRef[1]+1},{posRef[0]+1,posRef[1]-1},{posRef[0]+1,posRef[1]+1}};
+		for (int k=0;k<posArr.length;k++) {
+			if (this.checkBorder(posArr[k])) { //If the position is within the borders
+				if (!this.isAvailablePos(posArr[k])) { //If the position is unavailable
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
