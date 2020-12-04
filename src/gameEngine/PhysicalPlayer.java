@@ -20,7 +20,7 @@ import gameEngine.enumerate.NumOfPlayers;
 class PhysicalPlayer extends Player {
 	
 	private Map<Card, Integer[]> map = new HashMap<Card, Integer[]>();
-
+	private int i=0;
 	
 	PhysicalPlayer(String name) {
 		super(name);
@@ -32,28 +32,33 @@ class PhysicalPlayer extends Player {
 	    Integer[] position = new Integer[2];
 		takeCard(drawedCard);
 		
-		while(true){
-		    try{
-		    	System.out.println("Entrez la coordonnée en x : ");
-				position[0] = Integer.parseInt(scanner.next());  // Read user input
-		        break;
-		    }catch(NumberFormatException e){
-		        System.out.println("Mauvaise valeure. Entrez-en une nouvelle");
-		    }
+		while (i != 1) { 				//
+			while(true){
+			    try{
+			    	System.out.println("Entrez la coordonnée en x : ");
+					position[0] = Integer.parseInt(scanner.next());  // Read user input
+			        break;
+			    }catch(NumberFormatException e){
+			        System.out.println("Mauvaise valeure. Entrez-en une nouvelle");
+			    }
+			}
+			
+			while(true){
+			    try{
+			    	System.out.println("Entrez la coordonnée en y : ");
+					position[1] = Integer.parseInt(scanner.next());  // Read user input
+			        break;
+			    }catch(NumberFormatException e){
+			        System.out.println("Mauvaise valeure. Entrez-en une nouvelle");
+			    }
+			}
+
+			if (gBoard.check(position) && position[0] != null && position [1] != null) {
+				i = 1;
+			}
 		}
-		
-		while(true){
-		    try{
-		    	System.out.println("Entrez la coordonnée en y : ");
-				position[1] = Integer.parseInt(scanner.next());  // Read user input
-		        break;
-		    }catch(NumberFormatException e){
-		        System.out.println("Mauvaise valeure. Entrez-en une nouvelle");
-		    }
-		}		
-	    
 	    map.put(giveCard(drawedCard), position);
-    
+	    i=0;
 		return map;
 		
 		}	

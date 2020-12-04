@@ -18,8 +18,8 @@ class ConcreteAdvancedStrategy implements Strategy {
 
 	@Override
 	public Map<Card, Integer[]> play(Player p1, Card drawedCard, Map<Card, Integer[]> mapCard, Scanner scanner, GameBoard gBoard) {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub 
+		return mapCard; // -- doesn't work, this is only to prevent Eclipse to show problems
 	}
 	
 }

@@ -97,6 +97,7 @@ public class GameSession {
 			this.playRound(scanner, mapCard);
 			
 		}
+		System.out.println("FINAL "+gBoard);
 		
 	} 
 	
@@ -113,7 +114,7 @@ public class GameSession {
 	}
 	
 	/*public void changeGameBoard() {
-		//A implï¿½menter
+		//A implémenter
 	}*/
 	
 	public void playRound(Scanner scanner, Map<Card, Integer[]> mapCard) {

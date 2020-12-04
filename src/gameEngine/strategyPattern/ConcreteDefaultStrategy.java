@@ -31,8 +31,8 @@ class ConcreteDefaultStrategy implements Strategy {
 		while (i!=1) {
 			position[1] = (int) Math.round(Math.random()*((gBoard.getLenght()-1)));
 			position[0] = (int) Math.round(Math.random()*((gBoard.getWidth()-1)));
-			if (gBoard.check(position) && position[0] != null && position[1] != null) {
-				map.put(p1.giveCard(drawedCard), position);
+			if (gBoard.check(position) && position[0] != null && position[1] != null /*&& gBoard.adjacencyRule(position)*/) {
+				map.put(p1.giveCard(drawedCard), position);	
 				i = 1;
 			}
 		}
