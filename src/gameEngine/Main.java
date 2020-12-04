@@ -35,7 +35,7 @@ public class Main {
 				break;
 
 			default:
-				System.out.println("Mauvaise entrée, recommencez");
+				System.out.println("Mauvaise entrÃ©e, recommencez");
 				break;
 			}	
 		}
@@ -58,7 +58,7 @@ public class Main {
 				break;
 				
 			default:
-				System.out.println("Mauvaise entrée, recommencez");
+				System.out.println("Mauvaise entrÃ©e, recommencez");
 				break;
 			}
 	    }
@@ -85,11 +85,11 @@ public class Main {
 				nbVirtalPlayer = 3;
 				i = 1;
 				} else {
-					System.out.println("Mauvaise entrée, recommencez");
+					System.out.println("Mauvaise entrÃ©e, recommencez");
 				}
 				break;
 			default:
-				System.out.println("Mauvaise entrée, recommencez");
+				System.out.println("Mauvaise entrÃ©e, recommencez");
 				break;
 			} 
 	    }
@@ -107,7 +107,7 @@ public class Main {
 				break;
 		
 			default:
-				System.out.println("Mauvaise entrée, recommencez");
+				System.out.println("Mauvaise entrÃ©e, recommencez");
 				break;
 			}	    
 	    }

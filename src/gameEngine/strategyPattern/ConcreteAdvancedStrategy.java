@@ -11,16 +11,11 @@ import gameEngine.Player;
  *
  */
 class ConcreteAdvancedStrategy implements Strategy {
-	
-	@Override
-	public void play(Player p1, GameBoard gb) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void play(Player p1, GameBoard gb) {
 		// TODO Auto-generated method stub
 		
 	}
+	
 }
